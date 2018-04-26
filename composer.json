@@ -1,0 +1,8 @@
+{
+  "name": "drupal/itk_siteimprove",
+  "type": "drupal-module",
+  "description": "Provides siteimprove functionality",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+}
