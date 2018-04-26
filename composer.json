@@ -4,5 +4,5 @@
   "description": "Provides siteimprove functionality",
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
-  "minimum-stability": "dev",
+  "minimum-stability": "dev"
 }
