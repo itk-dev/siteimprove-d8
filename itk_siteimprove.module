@@ -9,6 +9,7 @@
  */
 function itk_siteimprove_preprocess_page(&$variables) {
   $settings = \Drupal::getContainer()->get('itk_siteimprove.settings');
+  $use_cookieinformation = \Drupal::config('itk_siteimprove.config')->get('use_cookieinformation');
   $key = $settings->get('key');
 
   // Ignore if key is not set.
@@ -35,6 +36,7 @@ function itk_siteimprove_preprocess_page(&$variables) {
     $variables['#attached']['library'][] = 'itk_siteimprove/itk-siteimprove';
     $variables['#attached']['drupalSettings']['itk_siteimprove'] = [
       'key' => $key,
+      'use_cookieinformation' => $use_cookieinformation,
     ];
   }
 }

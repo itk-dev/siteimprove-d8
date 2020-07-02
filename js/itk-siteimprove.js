@@ -9,17 +9,32 @@
   Drupal.behaviors.cookieMessageBehavior = {
     attach: function (context, settings) {
       var key = drupalSettings.itk_siteimprove.key;
-
+      var use_cookieinformation = drupalSettings.itk_siteimprove.use_cookieinformation;
       if (key) {
-        (function () {
-          var sz = document.createElement('script');
-          sz.type = 'text/javascript';
-          sz.async = true;
-          sz.src = '//ssl.siteimprove.com/js/siteanalyze_' + key + '.js';
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(sz, s);
-        })();
+        if (use_cookieinformation == 1) {
+          window.addEventListener('CookieInformationConsentGiven', function (event) {
+            if (CookieInformation.getConsentGivenFor('cookie_cat_statistic')) {
+              insertSiteImprove(key)
+            }
+          }, false);
+        }
+        else {
+          insertSiteImprove(key)
+        }
+
       }
     }
   };
 })(jQuery, Drupal);
+
+
+function insertSiteImprove(key) {
+  (function () {
+    var sz = document.createElement('script');
+    sz.type = 'text/javascript';
+    sz.async = true;
+    sz.src = '//ssl.siteimprove.com/js/siteanalyze_' + key + '.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(sz, s);
+  })();
+}

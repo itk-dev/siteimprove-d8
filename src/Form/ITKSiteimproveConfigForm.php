@@ -55,6 +55,12 @@ class ITKSiteimproveConfigForm extends ConfigFormBase {
       '#group' => 'tabs',
     ];
 
+    $form['cookieinformation'] = [
+      '#type' => 'details',
+      '#title' => t('Cookieinformation.com'),
+      '#group' => 'tabs',
+    ];
+
     $form['general']['key'] = [
       '#type' => 'textfield',
       '#title' => t('Siteimprove key'),
@@ -79,6 +85,13 @@ class ITKSiteimproveConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('excludes'),
     ];
 
+    $form['cookieinformation']['use_cookieinformation'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Check this if the site uses cookieinformation.com'),
+      '#required' => FALSE,
+      '#default_value' => $config->get('use_cookieinformation'),
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -90,6 +103,7 @@ class ITKSiteimproveConfigForm extends ConfigFormBase {
     $config = $this->config('itk_siteimprove.config');
     $config->set('exclude_admin', $form_state->getValue('exclude_admin'));
     $config->set('excludes', $form_state->getValue('excludes'));
+    $config->set('use_cookieinformation', $form_state->getValue('use_cookieinformation'));
 
     $formStateExcludes = $form_state->getValue('excludes');
 
