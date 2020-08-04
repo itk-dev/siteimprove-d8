@@ -8,10 +8,10 @@
 
   Drupal.behaviors.cookieMessageBehavior = {
     attach: function (context, settings) {
-      var key = drupalSettings.itk_siteimprove.key;
-      var useCookieinformation = drupalSettings.itk_siteimprove.use_cookieinformation;
+      let key = drupalSettings.itk_siteimprove.key;
+      let useCookieInformation = drupalSettings.itk_siteimprove.useCookieinformation;
       if (key) {
-        if (useCookieinformation) {
+        if (useCookieInformation) {
           window.addEventListener('CookieInformationConsentGiven', function (event) {
             if (CookieInformation.getConsentGivenFor('cookie_cat_statistic')) {
               insertSiteImprove(key)
