@@ -103,7 +103,7 @@ class ITKSiteimproveConfigForm extends ConfigFormBase {
     $config = $this->config('itk_siteimprove.config');
     $config->set('exclude_admin', $form_state->getValue('exclude_admin'));
     $config->set('excludes', $form_state->getValue('excludes'));
-    $config->set('use_cookieinformation', $form_state->getValue('use_cookieinformation'));
+    $config->set('use_cookieinformation', boolval($form_state->getValue('use_cookieinformation')));
 
     $formStateExcludes = $form_state->getValue('excludes');
 
