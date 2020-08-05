@@ -1,5 +1,5 @@
 {
-  "name": "drupal/itk_siteimprove",
+  "name": "itk-dev/itk_siteimprove",
   "type": "drupal-module",
   "description": "Provides siteimprove functionality",
   "keywords": ["Drupal"],
